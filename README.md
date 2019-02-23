@@ -1,6 +1,8 @@
 # Python extension using C
 
-This is an easy to follow sample module that shows you how you can extend Python with C. This example goes hand in hand with the official documentation which is available at the following link: [link](https://docs.python.org/3.6/extending/extending.html)
+This is an easy to follow sample module that shows you how you can extend Python with C. This example goes hand in hand with the official documentation which is available at the following link: [link](https://docs.python.org/3.6/extending/extending.html)  
+
+I also included keyword arguments and optional arguments in the C extension module. You can simple use these as you wish for your own template needs.
 
 
 ## Todo:
