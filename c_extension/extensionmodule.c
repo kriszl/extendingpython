@@ -113,7 +113,7 @@ static PyMethodDef ExtensionModuleMethods[] = {
     "check if the given number is a prime number or not"},
     {"prime_factors", prime_factors, METH_VARARGS,
     "print out the prime factors for the given number"},
-    {"gc", gcd, METH_VARARGS,
+    {"gcd", gcd, METH_VARARGS,
      "return the greates comm divisor of 2 numbers"},
     {"keyword_function", keyword_function, METH_VARARGS,
      "demonstrates how to use couple of keywords"},

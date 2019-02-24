@@ -6,6 +6,9 @@ I also included keyword arguments and optional arguments in the C extension modu
 
 
 ## Todo:
+** Important ones:
+   - test the code throughly
+   - add custom traceback exceptions
 1. A regular C extension -- DONE
 2. Make C API so I can also embed C++ within C
 3. A complete separate C++ extension
