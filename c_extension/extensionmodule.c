@@ -8,7 +8,7 @@ static PyObject *is_prime(PyObject *self, PyObject *args)
     Return true or false to the Python interpreter depending on the result.
     */
     int number;
-    bool flag;
+    bool flag = true;
 
     if (!PyArg_ParseTuple(args, "i", &number))
         return NULL;
@@ -16,10 +16,8 @@ static PyObject *is_prime(PyObject *self, PyObject *args)
     for (int divisor = 2; divisor * divisor <= number; divisor++)
         if (number % divisor == 0)
             flag = false;
-        else
-            flag = true;
 
-    printf("%s\n", flag ? "true" : "false");
+    printf("%s\n", flag ? "true" : "false"); 
 
     Py_RETURN_NONE;
 }
@@ -35,6 +33,7 @@ static PyObject *prime_factors(PyObject *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "i", &number))
         return NULL;
     
+    printf("%d ", 1);
     while (number % 2 == 0) {
         printf("%d ", 2);
         number /= 2;
@@ -57,12 +56,13 @@ static PyObject *gcd(PyObject *self, PyObject *args)
 {
   /*
   A funtion that returns the greatest common divisor of two numbers
+  Azért lehet bug, mert nem keyword argument.
   */  
 
   int first_number, second_number, remainder;
 
-  if (!PyArg_ParseTuple(args, "ii", &first_number, &second_number));
-      return NULL;
+  if (!PyArg_ParseTuple(args, "ii", &first_number, &second_number))
+    return NULL;
   
   while (second_number != 0) {
     remainder = first_number % second_number;
@@ -91,7 +91,7 @@ static PyObject *keyword_function(PyObject *self, PyObject *args, PyObject *keyw
     return NULL;
 
   printf("the value of first argument is: %d\n", number);
-  printf("all the arguements in order: %d\n%d\n%d\n%s\n", number, second_optional_int, other_optional, word);
+  printf("all the arguements in order:\n%d\n%d\n%d\n%s\n", number, second_optional_int, other_optional, word);
 
   Py_RETURN_NONE;
 }
@@ -115,7 +115,7 @@ static PyMethodDef ExtensionModuleMethods[] = {
     "print out the prime factors for the given number"},
     {"gcd", gcd, METH_VARARGS,
      "return the greates comm divisor of 2 numbers"},
-    {"keyword_function", keyword_function, METH_VARARGS,
+    {"keyword_function", (PyCFunction)keyword_function, METH_VARARGS | METH_KEYWORDS,
      "demonstrates how to use couple of keywords"},
     {NULL, NULL, 0, NULL} // sentinel
 };

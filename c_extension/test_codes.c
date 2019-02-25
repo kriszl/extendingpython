@@ -20,10 +20,13 @@ int main(void)
     scanf("%d", &input);
 
     // printf("%s", x ? "true" : "false");
-    printf("res: %d\n", is_prime(input));
-    printf("%s\n", is_prime(input) ? "true" : "false");
-    prime_fact(input);
-    greatest_comm(6, 12);
+    //printf("res: %d\n", is_prime(input));
+    //printf("%s\n", is_prime(input) ? "true" : "false");
+    //prime_fact(input);
+    greatest_comm(12, 6);
+    //merged_prime(input);
+    is_prime(input);
+    printf("regular is prime: %d\n", is_prime(input));
     merged_prime(input);
 
     return 0;
@@ -75,12 +78,10 @@ void prime_fact(int n)
 
 void merged_prime(int n)
 {
-    bool flag;
+    bool flag = true;
 
     for (int divisor = 2; divisor * divisor <= n; divisor++)
         if (n % divisor == 0)
             flag = false;
-        else
-            flag = true;
     printf("%s\n", flag ? "true" : "false");
 }
