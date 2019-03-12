@@ -33,7 +33,6 @@ static PyObject *prime_factors(PyObject *self, PyObject *args)
     if (!PyArg_ParseTuple(args, "i", &number))
         return NULL;
     
-    printf("%d ", 1);
     while (number % 2 == 0) {
         printf("%d ", 2);
         number /= 2;
@@ -56,7 +55,7 @@ static PyObject *gcd(PyObject *self, PyObject *args)
 {
   /*
   A funtion that returns the greatest common divisor of two numbers
-  Azért lehet bug, mert nem keyword argument.
+  Azért lehet bug, mert nem keyword argument
   */  
 
   int first_number, second_number, remainder;
